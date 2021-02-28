@@ -1,4 +1,4 @@
-const Help = () => {
+const Middle = () => {
     return (
         <div>
             
@@ -6,4 +6,4 @@ const Help = () => {
     )
 }
 
-export default Help
+export default Middle

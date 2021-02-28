@@ -19,3 +19,7 @@
     cursor: pointer;
     vertical-align: middle;
 }
+
+.item {
+    color: white;
+}

@@ -67,7 +67,7 @@ exports.signout = (req, res) => {
 exports.isSignedIn = expressJwt({
   secret: process.env.SECRET,
   userProperty: 'auth',
-  algorithms: ['RS256'],
+  algorithms: ['sha1', 'RS256', 'HS256'],
 });
 
 //middleware custom
@@ -88,4 +88,11 @@ exports.isAdmin = (req, res, next) => {
     });
   }
   next();
+};
+exports.isSubAdmin = (req, res, next) => {
+  if (req.profile.role === 2) {
+    return res.status(403).json({
+      error: 'your not Sub-Admin',
+    });
+  }
 };

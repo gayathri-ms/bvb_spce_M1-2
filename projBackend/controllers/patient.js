@@ -61,6 +61,7 @@ exports.createPatient = (req, res) => {
 
     patient.save((err, patient) => {
       if (err) {
+        console.log(err);
         res.status(400).json({
           error: 'saving in the db failed!',
         });
@@ -81,21 +82,21 @@ exports.getPatient = (req, res) => {
 //   next();
 // };
 exports.deletePatient = (req, res) => {
-  let patinet = req.patient;
+  let patient = req.patient;
 
-  patinet.remove((err, deletedPatinet) => {
+  patient.remove((err, deletedPatient) => {
     if (err) {
       return res.status(400).json({
-        error: `unable to remove product ${deletedPatinet}`,
+        error: `unable to remove product ${deletedPatient}`,
       });
     }
     res.json({
-      message: `successfuly deleted the product ${deletedPatinet}`,
+      message: `successfuly deleted the product ${deletedPatient}`,
     });
   });
 };
 
-exports.updatePatinet = (req, res) => {
+exports.updatePatient = (req, res) => {
   let form = new formidable.IncomingForm();
   form.keepExtensions = true;
 

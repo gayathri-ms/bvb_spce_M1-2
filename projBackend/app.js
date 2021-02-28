@@ -31,6 +31,6 @@ mongoose
   });
 
 //port  and starting a server
-app.listen(process.env.PORT || 8000, () => {
+app.listen(process.env.PORT, () => {
   console.log(`app is running  and portno: ${process.env.PORT}`);
 });

@@ -7,7 +7,7 @@ const {
   getPatient,
 
   deletePatient,
-  updatePatinet,
+  updatePatient,
   getAllPatients,
 } = require('../controllers/patient');
 
@@ -16,11 +16,11 @@ const { isSignedIn, isAuthenticated, isAdmin } = require('../controllers/auth');
 
 //parm
 router.param('userId', getUserById);
-router.param('patient', getPatientById);
+router.param('patientId', getPatientById);
 
 //create routes
 router.post(
-  '/patinet/create/:userId',
+  '/patient/create/:userId',
   isSignedIn,
   isAuthenticated,
   isAdmin,
@@ -39,11 +39,11 @@ router.delete(
   deletePatient
 );
 router.put(
-  '/patinet/:patinetId/:userId',
+  '/patient/:patientId/:userId',
   isSignedIn,
   isAuthenticated,
   isAdmin,
-  updatePatinet
+  updatePatient
 );
 
 //listing routes
